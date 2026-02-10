@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Awareness Demo - Educational Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 600px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .warning-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+        }
+
+        h1 {
+            color: #2d3748;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .warning-box {
+            background: #fff5f5;
+            border-left: 4px solid #ff6b6b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box h2 {
+            color: #c53030;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-box {
+            background: #ebf8ff;
+            border-left: 4px solid #3182ce;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .info-box h2 {
+            color: #2c5282;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        p,
+        li {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        .checkbox-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+
+        .checkbox-container label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+        }
+
+        .btn:not(:disabled):hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #718096;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="warning-icon">⚠️</div>
+
+        <h1>🎓 Educational Security Awareness Demo</h1>
+
+        <div class="warning-box">
+            <h2>⚠️ IMPORTANT NOTICE</h2>
+            <p><strong>This is a PHISHING DEMONSTRATION for educational purposes only.</strong></p>
+            <p>This project demonstrates how phishing attacks work and is part of a college cybersecurity awareness
+                project.</p>
+        </div>
+
+        <div class="info-box">
+            <h2>📚 Project Purpose</h2>
+            <ul>
+                <li><strong>Educational Tool:</strong> To demonstrate phishing techniques</li>
+                <li><strong>Security Awareness:</strong> To teach users how to identify fake login pages</li>
+                <li><strong>Controlled Environment:</strong> For use in authorized network only</li>
+                <li><strong>No Real Data:</strong> Do NOT enter real Instagram credentials</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <h2>🚫 What This Is NOT</h2>
+            <ul>
+                <li>NOT the real Instagram website</li>
+                <li>NOT intended to steal real credentials</li>
+                <li>NOT for unauthorized use outside this project</li>
+                <li>NOT affiliated with Instagram or Meta</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h2>🔒 Data Collection Notice</h2>
+            <p>This demo collects the following for educational purposes:</p>
+            <ul>
+                <li>Phone numbers entered (for demonstration)</li>
+                <li>Test passwords (DO NOT use real passwords)</li>
+                <li>IP addresses (for tracking demo usage)</li>
+            </ul>
+            <p><strong>All data is stored in a secure database for project demonstration only.</strong></p>
+        </div>
+
+        <div class="checkbox-container">
+            <label>
+                <input type="checkbox" id="agreeCheckbox">
+                I understand this is an educational demo and I will NOT enter real credentials
+            </label>
+        </div>
+
+        <button class="btn" id="proceedBtn" disabled onclick="proceedToDemo()">
+            Proceed to Security Demo
+        </button>
+
+        <div class="footer">
+            <p>College Final Year Project - Cybersecurity Awareness</p>
+            <p>For Educational Purposes Only | © 2024</p>
+        </div>
+    </div>
+
+    <script>
+        const checkbox = document.getElementById('agreeCheckbox');
+        const btn = document.getElementById('proceedBtn');
+
+        checkbox.addEventListener('change', function () {
+            btn.disabled = !this.checked;
+        });
+
+        function proceedToDemo() {
+            // Set a flag in sessionStorage to show they agreed
+            sessionStorage.setItem('disclaimer_agreed', 'true');
+            window.location.href = '/login.html';
+        }
+    </script>
+</body>
+
+</html>
