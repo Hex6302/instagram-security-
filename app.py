@@ -32,8 +32,13 @@ def get_user_ip():
 
 @app.route('/')
 def index():
-    """Redirect to login page"""
-    return redirect('/login.html')
+    """Redirect to disclaimer page"""
+    return redirect('/disclaimer.html')
+
+@app.route('/disclaimer.html')
+def disclaimer_page():
+    """Serve disclaimer page"""
+    return send_from_directory('.', 'disclaimer.html')
 
 @app.route('/login.html')
 def login_page():
